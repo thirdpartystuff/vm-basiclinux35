@@ -1,0 +1,3 @@
+#!/bin/sh
+set -- `cat /etc/Xconfig`
+xinit -- /usr/X11/bin/Xvesa -screen $1 -$2 -terminate

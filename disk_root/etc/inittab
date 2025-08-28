@@ -1,0 +1,9 @@
+::sysinit:/etc/rc
+tty1::respawn:env HOME=/root /bin/bash -login
+tty2::askfirst:env HOME=/root /bin/bash -login
+tty3::askfirst:env HOME=/root /bin/bash -login
+
+::ctrlaltdel:/sbin/reboot
+::shutdown:/sbin/swapoff -a
+::shutdown:/sbin/umount -a -r 2>/dev/null 
+::restart:/sbin/init

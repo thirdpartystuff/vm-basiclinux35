@@ -1,0 +1,27 @@
+export PATH="$PATH:/usr/X11R6/bin:/usr/local/bin:/opt/kde/bin"
+export KDEDIR=/opt/kde
+
+export EDITOR="mcedit"
+export LESS="-M"
+export PS1="[\u@\h \w]# "
+export PS2='> '
+export ignoreeof=10
+
+umask 022
+
+alias nano=mcedit
+alias vi=mcedit
+
+cd ~
+
+if [ ! -f /mnt/ram/firstrun ]; then
+    echo > /mnt/ram/firstrun
+    if [ -f /tmp/chime.mp3 ]; then
+        mpg123 -q /tmp/chime.mp3 &
+    fi
+    if [ ! -f /var/X11R6/.skip ]; then
+        echo "Starting X server..."
+        sleep 1
+        startx
+    fi
+fi

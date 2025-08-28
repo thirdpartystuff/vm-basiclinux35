@@ -1,0 +1,75 @@
+<?xml version="1.0"?>
+<JWM>
+
+  <DesktopCount>2</DesktopCount>
+  <DoubleClickSpeed>400</DoubleClickSpeed>
+  <DoubleClickDelta>2</DoubleClickDelta>
+  <FocusModel>click</FocusModel> <!-- (sloppy or click) -->
+
+  <RootMenu>
+    <Program label="Konsole">konsole</Program>
+    <Separator/>
+    <Menu label="System utilities">
+      <Program label="XClipboard">xclipboard</Program>
+    </Menu>
+    <Separator/>
+    <Restart/>
+    <Exit/>
+  </RootMenu>
+
+  <Popup enabled="false">
+  </Popup>
+
+  <Clock>
+    <Program>xcal</Program>
+  </Clock>
+
+  <Key key="Up">up</Key>
+  <Key key="Down">down</Key>
+  <Key key="Right">right</Key>
+  <Key key="Left">left</Key>
+  <Key key="Return">select</Key>
+  <Key key="Escape">escape</Key>
+
+  <Key mask="A" key="Tab">next</Key>
+  <Key mask="A" key="F4">close</Key>
+  <Key mask="A" key="#">desktop#</Key>
+  <Key mask="A" key="F1">root</Key>
+  <Key mask="A" key="F2">window</Key>
+
+  <Border>
+    <Font antialias="false">-bitstream-charter-bold-r-normal-*-18-0-0-0-p-0-*-*</Font>
+    <Width>5</Width>
+    <Height>20</Height>
+    <Foreground>black</Foreground>
+    <Background>#DCDAD5</Background>
+    <ActiveForeground>black</ActiveForeground>
+    <ActiveBackground>#8899AA</ActiveBackground>
+  </Border>
+
+  <Tray autohide="false">
+    <Font antialias="false">-bitstream-charter-bold-r-normal-*-20-0-0-0-p-0-*-*</Font>
+    <Height>28</Height>
+    <Foreground>black</Foreground>
+    <Background>#DCDAD5</Background>
+    <ActiveForeground>black</ActiveForeground>
+    <ActiveBackground>#8899AA</ActiveBackground>
+  </Tray>
+
+  <Pager>
+    <Outline>black</Outline>
+    <Foreground>#DCDAD5</Foreground>
+    <Background>#888888</Background>
+    <ActiveForeground>#8899AA</ActiveForeground>
+    <ActiveBackground>#3A4956</ActiveBackground>
+  </Pager>
+
+  <Menu>
+    <Font antialias="false">-bitstream-charter-bold-r-normal-*-18-0-0-0-p-0-*-*</Font>
+    <Foreground>black</Foreground>
+    <Background>#DCDAD5</Background>
+    <ActiveForeground>white</ActiveForeground>
+    <ActiveBackground>#3A4956</ActiveBackground>
+  </Menu>
+
+</JWM>

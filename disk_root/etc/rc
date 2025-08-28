@@ -1,0 +1,20 @@
+#!/bin/sh
+
+PATH=/sbin:/usr/sbin:/bin:/usr/bin
+
+mke2fs -q /dev/ram0
+mount -avt nonfs
+
+insmod soundcore
+insmod sound
+insmod uart401
+insmod sb io=0x220 irq=7 dma=1 dma16=5 mpu_io=0x330
+
+insmod 8390
+insmod ne io=0x300 irq=3
+
+hostname linux
+ifconfig lo 127.0.0.1
+route add -net 127.0.0.0 netmask 255.0.0.0 lo
+ifconfig eth0 10.0.2.15 netmask 255.255.255.0 up
+route add default gw 10.0.2.2
