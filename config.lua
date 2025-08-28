@@ -1,9 +1,8 @@
 
-local arg = arg or {}
-
 local silent = arg.silent
 local console = arg.console
 local mode = arg.mode or '1024x768x15'
+local disk_size = arg.disk_size or '100m'
 
 local resolution
 if mode == '1024x768x24' then
@@ -22,6 +21,7 @@ else
     error('invalid video mode!')
 end
 
+dosbox.here_is_your_working_dir()
 dosbox.title('BasicLinux 3.5 ('..mode..')')
 dosbox.window_resolution(resolution)
 dosbox.mem_size('256')
@@ -39,13 +39,12 @@ dosbox.autoexec_bat('mount s: disk_c')
 dosbox.autoexec_bat('s:')
 dosbox.autoexec_bat('loadlin zimage root=/dev/hda1 ramdisk_size=2048 rw')
 
-local dsk, DIR = mkdisk.create('500m', 'ext2')
-dsk:add_directory(DIR['/'], 'disk_root')
-dsk:add_file_content(DIR['/']['etc'], 'Xconfig', mode..'\n2button\n')
+local disk, DIR = mkdisk.create_named('/', '.disk.vhd', disk_size, 'ext2')
+disk:add_directory(DIR['/'], 'disk_root')
+disk:add_file_content(DIR['/']['etc'], 'Xconfig', mode..'\n2button\n')
 if not silent then
-    dsk:add_file(DIR['/']['tmp'], 'chime.mp3', 'extra/chime.mp3')
+    disk:add_file(DIR['/']['tmp'], 'chime.mp3', 'extra/chime.mp3')
 end
 if console then
-    dsk:add_file_content(DIR['/']['var']['X11R6'], '.skip', '')
+    disk:add_file_content(DIR['/']['var']['X11R6'], '.skip', '')
 end
-dsk:write_vhd('.disk.vhd')
