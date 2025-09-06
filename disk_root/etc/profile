@@ -19,6 +19,9 @@ if [ ! -f /mnt/ram/firstrun ]; then
     if [ -f /tmp/chime.mp3 ]; then
         mpg123 -q /tmp/chime.mp3 &
     fi
+    if [ -f /tmp/console_autorun.sh ]; then
+        sh /tmp/console_autorun.sh
+    fi
     if [ ! -f /var/X11R6/.skip ]; then
         echo "Starting X server..."
         sleep 1

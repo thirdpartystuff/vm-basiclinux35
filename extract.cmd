@@ -8,6 +8,7 @@ ext2read.exclude(
     "/root/.bash_history",
     "/tmp/.X11-unix/X0",
     "/tmp/chime.mp3",
+    "/tmp/console_autorun.sh",
     "/var/X11R6/.skip"
     )
 
